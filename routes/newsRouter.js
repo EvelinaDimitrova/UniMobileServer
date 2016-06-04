@@ -33,10 +33,10 @@ router.get('/', function(req, res, next) {
 	var chunkSize = req.query.chunkSize;	
 
 	var fullContent = "Y";
-	//Verify the caller networkMode - "Full" or "Compact"
-	var networkMode = req.headers.networkmode;
-	console.log(networkMode);
-	if (networkMode && networkMode === "Compact"){
+	//Verify the caller contectMode - "Full" or "Compact"
+	var contentMode = req.headers.contentmode;
+	//console.log("contentMode=" + contentMode);
+	if (contentMode && contentMode === "Compact"){
 		fullContent = "N";
 	}
 
@@ -91,10 +91,10 @@ router.get('/:newsId', function(req, res, next) {
 
 	var newsId = req.params.newsId;
 	var fullContent = "Y";
-	//Verify the caller networkMode - "Full" or "Compact"
-	var networkMode = req.headers.networkmode;
-	console.log(networkMode);
-	if (networkMode && networkMode === "Compact"){
+	//Verify the caller contectMode - "Full" or "Compact"
+	var contentMode = req.headers.contentmode;
+	//console.log("contentMode=" + contentMode);
+	if (contentMode && contentMode === "Compact"){
 		fullContent = "N";
 	}
 

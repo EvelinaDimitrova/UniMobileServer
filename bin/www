@@ -5,6 +5,7 @@
  */
 
 var app = require('../app');
+var pjson = require('../package.json');
 var debug = require('debug')('UniMobileServer:server');
 var http = require('http');
 
@@ -12,8 +13,15 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+//Verify for valid DB configuration in package.json
+if (pjson && pjson.portNumber) {
+	var port = normalizePort(pjson.portNumber);
+	app.set('port', pjson.portNumber);
+}
+else {
+	var port = normalizePort(process.env.PORT || '3000');
+	app.set('port', port);
+}
 
 /**
  * Create HTTP server.

@@ -30,5 +30,6 @@
 		"database": "mydb",
 		"timezone": "utc"
 	},
-	"imagesRoot" : "D:\\Images"
+	"imagesRoot" : "D:\\Images",
+	"portNumber" : 3000
 }
